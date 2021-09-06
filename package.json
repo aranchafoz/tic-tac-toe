@@ -2,11 +2,13 @@
   "name": "tic-tac-toe-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc --project ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "tsc",
+    "deploy": "git push heroku main"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +21,8 @@
     "@types/node": "^16.7.10",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
+  },
+  "engines”": {
+    "node": "14.x"
   }
 }

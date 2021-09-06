@@ -1,1 +1,1 @@
-web: ts-node/src/config/server.ts
+worker: node dist/index.js
