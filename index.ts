@@ -1,6 +1,5 @@
 import express from 'express';
 import Game from './game';
-import { calculateNextMove } from './strategy';
 import { isPlausiblyOsTurn, validateBoardContent } from './validators';
 
 const app = express();
