@@ -6,7 +6,6 @@ test.each([
   { input: '    o oxx', expected: '  o o oxx' },
 ])('Win - $input', ({ input, expected }) => {
   const game = new Game(input);
-  game.storeLines();
   const nextMove = game.calculateNextMove();
   expect(nextMove).toBe(expected);
 });
@@ -17,17 +16,15 @@ test.each([
   { input: 'x     oox', expected: 'x   o oox' },
 ])('Block - $input', ({ input, expected }) => {
   const game = new Game(input);
-  game.storeLines();
   const nextMove = game.calculateNextMove();
   expect(nextMove).toBe(expected);
 });
 
 test.each([
   { input: 'xx  o   o', expected: 'xxo o   o' },
-  { input: 'x   ox  o', expected: 'xo  ox  o' },
+  { input: 'x   ox  o', expected: 'x   oxo o' },
 ])('Fork - $input', ({ input, expected }) => {
   const game = new Game(input);
-  game.storeLines();
   const nextMove = game.calculateNextMove();
   expect(nextMove).toBe(expected);
 });

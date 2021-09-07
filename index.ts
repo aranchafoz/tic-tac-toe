@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
         res.status(400).send('Invalid board');
     } else {
         const game = new Game(board);
-        game.storeLines();
         const nextMove = game.calculateNextMove();
         res.status(200).send(nextMove);
     }
