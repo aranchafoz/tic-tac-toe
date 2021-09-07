@@ -1,4 +1,4 @@
-import { getWinnerLineIndex } from "./validators";
+import { getOponentWinnerLineIndex, getWinnerLineIndex } from "./validators";
 
 const diagonalIndexs = [[0, 4, 8], [2, 4, 6]];
 
@@ -68,10 +68,40 @@ class Game {
     return false;
   }
 
+  private block(): boolean {
+    const rowIndex = getOponentWinnerLineIndex(this.rows);
+    if (rowIndex > -1) {
+      const cellIndex = this.rows[rowIndex].indexOf(' ');
+      const boardCellIndex = rowIndex*3 + cellIndex;
+      this.playOAt(boardCellIndex);
+      return true;
+    } 
+
+    const columnIndex = getOponentWinnerLineIndex(this.columns);
+    if (columnIndex > -1) {
+      const cellIndex = this.columns[columnIndex].indexOf(' ');
+      const boardCellIndex = columnIndex + cellIndex*3;
+      this.playOAt(boardCellIndex);
+      return true;
+    }
+
+    const diagonalIndex = getOponentWinnerLineIndex(this.diagonals);
+    if (diagonalIndex > -1) {
+      const cellIndex = this.diagonals[diagonalIndex].indexOf(' ');
+      const boardCellIndex = diagonalIndexs[diagonalIndex][cellIndex];
+      this.playOAt(boardCellIndex);
+      return true;
+    }
+
+    return false;
+  }
+
   calculateNextMove(): string {
     // win
     if (!this.win()) {
+      if (!this.block()) {
 
+      }
     }
 
 

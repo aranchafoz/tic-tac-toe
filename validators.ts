@@ -9,3 +9,7 @@ export function isPlausiblyOsTurn(board: string): boolean {
 export function getWinnerLineIndex(lines: string[]): number {
   return lines.findIndex(e => e.includes(' ') && (e.match(/o/g) || []).length === 2);
 }
+
+export function getOponentWinnerLineIndex(lines: string[]): number {
+  return lines.findIndex(e => e.includes(' ') && (e.match(/x/g) || []).length === 2);
+}
